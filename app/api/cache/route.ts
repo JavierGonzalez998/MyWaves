@@ -3,7 +3,7 @@ import { limpiarCacheCompleto } from "@/lib/db";
 
 export async function DELETE() {
   try {
-    limpiarCacheCompleto();
+    await limpiarCacheCompleto();
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json({ error: String(error) }, { status: 500 });

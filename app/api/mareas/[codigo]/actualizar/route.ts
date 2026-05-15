@@ -10,7 +10,7 @@ export async function POST(
     const { codigo } = await params;
     const meses = await scrapeMareas(codigo);
     for (const mes of meses) {
-      upsertCache(mes);
+      await upsertCache(mes);
     }
     return NextResponse.json(meses);
   } catch (error) {

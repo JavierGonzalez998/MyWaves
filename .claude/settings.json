@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Admin/Documents/PROYECTOS/jg-mareas/**)",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)"
+    ]
+  }
+}

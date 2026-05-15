@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const consulta = obtenerConsulta(parseInt(id, 10));
+    const consulta = await obtenerConsulta(parseInt(id, 10));
     return NextResponse.json(consulta);
   } catch (error) {
     return NextResponse.json({ error: String(error) }, { status: 500 });

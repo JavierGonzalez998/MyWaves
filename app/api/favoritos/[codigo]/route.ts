@@ -7,7 +7,7 @@ export async function DELETE(
 ) {
   try {
     const { codigo } = await params;
-    eliminarFavorito(codigo);
+    await eliminarFavorito(codigo);
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json({ error: String(error) }, { status: 500 });

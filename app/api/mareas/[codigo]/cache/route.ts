@@ -7,7 +7,7 @@ export async function DELETE(
 ) {
   try {
     const { codigo } = await params;
-    limpiarCacheEstacion(codigo);
+    await limpiarCacheEstacion(codigo);
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json({ error: String(error) }, { status: 500 });

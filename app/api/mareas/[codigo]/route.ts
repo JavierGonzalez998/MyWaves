@@ -9,12 +9,12 @@ export async function GET(
   try {
     const { codigo } = await params;
 
-    let meses = obtenerCache(codigo);
+    let meses = await obtenerCache(codigo);
 
     if (meses.length === 0) {
       meses = await scrapeMareas(codigo);
       for (const mes of meses) {
-        upsertCache(mes);
+        await upsertCache(mes);
       }
     }
 

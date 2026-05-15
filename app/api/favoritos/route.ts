@@ -3,7 +3,7 @@ import { agregarFavorito, obtenerFavoritos } from "@/lib/db";
 
 export async function GET() {
   try {
-    return NextResponse.json(obtenerFavoritos());
+    return NextResponse.json(await obtenerFavoritos());
   } catch (error) {
     return NextResponse.json({ error: String(error) }, { status: 500 });
   }
@@ -12,7 +12,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const { codigo, nombre } = await req.json();
-    agregarFavorito(codigo, nombre);
+    await agregarFavorito(codigo, nombre);
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json({ error: String(error) }, { status: 500 });
